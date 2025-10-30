@@ -1,0 +1,66 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"compatibility_date": "2025-10-08",
+	"main": "src/index.ts",
+	"name": "backend",
+	"upload_source_maps": true,
+	"observability": {
+		"enabled": true
+	},
+	"vars": {
+		"SUPABASE_HOST": "db.fknmnpolscgastycxdau.supabase.co",
+		"SUPABASE_PORT": "5432",
+		"SUPABASE_DATABASE": "postgres",
+		"SUPABASE_USER": "postgres"
+	},
+
+	// Note: SUPABASE_PASSWORD should be set as a secret using:
+	// npx wrangler secret put SUPABASE_PASSWORD
+
+	/**
+	 * Smart Placement
+	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
+	 */
+	// "placement": { "mode": "smart" }
+	/**
+	 * Bindings
+	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
+	 * databases, object storage, AI inference, real-time communication and more.
+	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
+	 */
+	/**
+	 * Environment Variables
+	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+	 */
+	// "vars": { "MY_VARIABLE": "production_value" }
+	/**
+	 * Note: Use secrets to store sensitive data.
+	 * https://developers.cloudflare.com/workers/configuration/secrets/
+	 */
+	/**
+	 * Static Assets
+	 * https://developers.cloudflare.com/workers/static-assets/binding/
+	 */
+	// "assets": { "directory": "./public/", "binding": "ASSETS" }
+	/**
+	 * Service Bindings (communicate between multiple Workers)
+	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
+	 */
+	// "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "openapi-template-db",
+			"database_id": "18d141d5-062d-46a0-a92a-bade3f8c4b00"
+		},
+		{
+			"binding": "openapi_template_db",
+			"database_name": "openapi-template-db",
+			"database_id": "8040bea2-b273-4db8-9e53-311b2c30fc12"
+		}
+	]
+}
