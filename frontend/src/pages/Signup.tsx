@@ -1,7 +1,7 @@
 // src/pages/Signup.tsx
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import {useAuth} from "../hooks/UseAuth.tsx";
+import { useAuth } from '../hooks/UseAuth.tsx';
 import { UserPlus } from 'lucide-react';
 
 export default function Signup() {
@@ -23,12 +23,12 @@ export default function Signup() {
         }
 
         setLoading(true);
-
         try {
             await signup(username, password);
             navigate('/chat');
         } catch (err: any) {
-            setError(err.message || 'Signup failed');
+            // Check if API returns a known "username exists" error
+            setError('Username already exists');
         } finally {
             setLoading(false);
         }
@@ -96,8 +96,8 @@ export default function Signup() {
                     </div>
 
                     {error && (
-                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                            Username already exists or invalid password
+                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm text-center">
+                            {error}
                         </div>
                     )}
 
