@@ -12,11 +12,8 @@
 		"enabled": true
 	},
 	"vars": {
-		"SUPABASE_HOST": "db.fknmnpolscgastycxdau.supabase.co",
-		"SUPABASE_PORT": "5432",
-		"SUPABASE_DATABASE": "postgres",
-		"SUPABASE_USER": "postgres"
-	},
+		"SUPABASE_URL": "https://fknmnpolscgastycxdau.supabase.co"
+	}
 
 	// Note: SUPABASE_PASSWORD should be set as a secret using:
 	// npx wrangler secret put SUPABASE_PASSWORD
@@ -51,16 +48,4 @@
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
 	 */
 	// "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "openapi-template-db",
-			"database_id": "18d141d5-062d-46a0-a92a-bade3f8c4b00"
-		},
-		{
-			"binding": "openapi_template_db",
-			"database_name": "openapi-template-db",
-			"database_id": "8040bea2-b273-4db8-9e53-311b2c30fc12"
-		}
-	]
 }
