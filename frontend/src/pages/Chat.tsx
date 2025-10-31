@@ -9,7 +9,6 @@ import { Send, LogOut, Trash2, Bot, User, Settings, Loader2 } from 'lucide-react
 // Markdown rendering
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import remarkBreaks from "remark-breaks";
 
 export default function Chat() {
     const [messages, setMessages] = useState<Message[]>([]);
@@ -188,7 +187,7 @@ export default function Chat() {
                                         >
                                             <div className={`markdown ${message.own ? 'prose-invert' : ''}`}>
                                                 <ReactMarkdown
-                                                    remarkPlugins={[remarkGfm, remarkBreaks]}
+                                                    remarkPlugins={[remarkGfm]}
                                                     skipHtml
                                                     components={{
                                                         ul: ({node, ...props}) => (
@@ -200,7 +199,8 @@ export default function Chat() {
                                                         a: ({node, ...props}) => (
                                                             <a target="_blank" rel="noopener noreferrer" {...props} />
                                                         ),
-                                                        code: ({ inline, className, children, ...props }) => {
+                                                        code: ({ node, className, children, ...props }: any) => {
+                                                            const inline = !className;
                                                             if (inline) {
                                                                 return (
                                                                     <code className={className} {...props}>
@@ -210,10 +210,10 @@ export default function Chat() {
                                                             }
                                                             return (
                                                                 <pre>
-                                  <code className={className} {...props}>
-                                    {children}
-                                  </code>
-                                </pre>
+                    <code className={className} {...props}>
+                        {children}
+                    </code>
+                </pre>
                                                             );
                                                         },
                                                     }}
