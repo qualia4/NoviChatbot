@@ -1,0 +1,154 @@
+# .gitignore for Cloudflare Workers + TypeScript + Supabase Project
+
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Production
+/dist
+/build
+*.js.map
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.dev.vars
+
+# Wrangler
+.wrangler/
+wrangler.toml.bak
+worker/
+
+# Secrets and API Keys
+*.key
+*.pem
+secrets.json
+credentials.json
+
+# Database
+*.sql.backup
+*.db
+*.sqlite
+*.sqlite3
+/migrations/*.sql.backup
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# IDE - JetBrains (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
+
+# IDE - Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Testing
+/coverage
+/.nyc_output
+*.test.ts.snap
+
+# TypeScript
+*.tsbuildinfo
+.tscache/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+
+# Build outputs
+*.worker.js
+*.worker.js.map
+
+# Cloudflare Workers specific
+workers-site/
+.worker-next/
+
+# Supabase
+.supabase/
+
+# Local development
+.local/
+
+# Package manager lock files (choose one)
+# Uncomment the one you DON'T use:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Optional: Include if you use bun
+# bun.lockb
+
+# Production config (if you have separate configs)
+wrangler.production.toml
+wrangler.staging.toml
+
+# Backup files
+*.bak
+*.backup
+
+# Documentation build
+/docs/build
+/docs/.docusaurus
+
+# Vitest
+.vitest/
+
+# TypeScript generated files
+/src/**/*.js
+/src/**/*.d.ts
+!/src/**/*.d.ts
+
+# Worker configuration (contains secrets)
+# IMPORTANT: Make sure wrangler.toml doesn't contain sensitive data
+# Use wrangler secrets for sensitive values instead
+
+# If you have a local test database
+test.db
+
+# Output directory (for generated files during development)
+/outputs
+
+# MCP test servers (if running locally)
+mcp-servers/
+
+# Temporary test files
+test-data/
+scratch/
