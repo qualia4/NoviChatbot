@@ -34,7 +34,7 @@ export default function Login() {
                     <LogIn className="w-12 h-12 text-indigo-600" />
                 </div>
                 <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-                    Good luck!
+                    Welcome Back
                 </h1>
 
                 <form onSubmit={handleSubmit} className="space-y-4">

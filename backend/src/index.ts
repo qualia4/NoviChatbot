@@ -6,6 +6,7 @@ import { ContentfulStatusCode } from "hono/utils/http-status";
 import { DummyEndpoint } from "./endpoints/dummyEndpoint";
 import { SignupEndpoint } from "./endpoints/auth/signupEndpoint";
 import { LoginEndpoint } from "./endpoints/auth/loginEndpoint";
+import { GetUserEndpoint} from "./endpoints/auth/getUserEndpoint";
 import { SendMessageEndpoint } from "./endpoints/messages/sendMessageEndpoint";
 import { GetMessagesEndpoint } from "./endpoints/messages/getMessagesEndpoint";
 import { ClearMessagesEndpoint } from "./endpoints/messages/clearMessagesEndpoint";
@@ -60,6 +61,7 @@ openapi.registry.registerComponent("securitySchemes", "bearerAuth", {
 });
 
 // Authentication routes
+openapi.get("/auth/me", GetUserEndpoint);
 openapi.post("/auth/signup", SignupEndpoint);
 openapi.post("/auth/login", LoginEndpoint);
 
